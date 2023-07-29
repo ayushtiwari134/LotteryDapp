@@ -189,7 +189,7 @@ function App() {
     const isOwner = await checkOwner();
     if (!isOwner) { alert("You are not the owner!") };
     const lottery = getContract();
-    
+
     const tx = await lottery.sendMoney();
     await tx.wait();
     setPlayers([]);
@@ -240,7 +240,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path='/' element={<Home currentAccount={currentAccount} connectWallet={connectWallet} />} />
+          <Route path='/' element={<Home currentAccount={currentAccount} connectWallet={connectWallet} owner={owner} />} />
           <Route path='/manager' element={<Manager currentAccount={currentAccount} selectWinner={selectWinner} owner={owner} winner={winner} sendMoney={sendMoney} />} />
           <Route path='/player' element={<Player getPlayers={getPlayers} players={players} createPlayer={createPlayer} />} />
         </Routes>
