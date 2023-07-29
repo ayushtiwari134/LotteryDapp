@@ -7,7 +7,7 @@ import Home from './components/Home';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const { ethereum } = window
-const contractAddress = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9";
+const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 const abi = [
   {
     "inputs": [],
@@ -189,6 +189,7 @@ function App() {
     const isOwner = await checkOwner();
     if (!isOwner) { alert("You are not the owner!") };
     const lottery = getContract();
+    
     const tx = await lottery.sendMoney();
     await tx.wait();
     setPlayers([]);
@@ -197,7 +198,7 @@ function App() {
   const createPlayer = async () => {
     const parsedAmount = ethers.utils.parseEther('0.1');
     const lottery = getContract();
-    const tx = await lottery.createPlayer({ value: parsedAmount });
+    const tx = await lottery.createPlayer({ value: ethers.utils.parseEther('0.1') });
     console.log("loading");
     await tx.wait();
     console.log("finished");

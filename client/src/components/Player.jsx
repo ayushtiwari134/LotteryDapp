@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 const Player = ({ getPlayers, createPlayer, players }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,7 +24,7 @@ const Player = ({ getPlayers, createPlayer, players }) => {
                             <p className='text-white'>{item.slice(0, 12) + "..." + item.slice(item.length - 3)}</p>
                         )
                     })}
-                </div>:<p></p>}
+                </div> : <p></p>}
             </div>
         </div>
     )

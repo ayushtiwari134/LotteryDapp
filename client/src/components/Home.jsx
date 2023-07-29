@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom'
 const Home = ({ currentAccount, connectWallet }) => {
     return (
         <div className='text-white font-bold cube flex flex-col gap-5 min-h-[50%]  md:w-[50%] w-[85vw] justify-center items-center border p-10'>
-            <div className="connected_account sm:text-xl md:text-2xl font-light flex gap-5 items-center">
-                {!currentAccount ? <button className='border py-1 px-2 rounded-md hover:bg-[#6CB4EE] hover:border-transparent mb-5' onClick={connectWallet}>Connect Wallet</button> :
-                    <p className='text-xl'>Account Connected : {currentAccount.slice(0, 4) + "..." + currentAccount.slice(currentAccount.length - 3)}</p>
-                }
+            <div className="connected_account sm:text-xl md:text-2xl font-light md:flex md:flex-row flex flex-col justify-center gap-5 items-center mb-5">
+                <button className='border py-1 px-2 rounded-md hover:bg-[#6CB4EE] hover:border-transparent ' onClick={connectWallet}>{!currentAccount ? "Connect Wallet" : "Change Account"}</button>
+                {currentAccount && <p className='text-xl text-center'>Account Connected : {currentAccount.slice(0, 4) + "..." + currentAccount.slice(currentAccount.length - 3)}</p>}
             </div>
             <div className="top-text  sm:text-3xl md:text-5xl text-xl">
                 Play as:
