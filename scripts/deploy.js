@@ -1,7 +1,6 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-  const [deployer] = await ethers.getSigners();
   const Lottery = await ethers.getContractFactory("Lottery");
   const lottery = await Lottery.deploy();
   console.log("Address:", lottery.address);
