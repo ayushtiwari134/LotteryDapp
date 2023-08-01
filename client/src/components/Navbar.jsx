@@ -35,7 +35,6 @@ const Navbar = () => {
             <li><Link to="./player">Player</Link></li>
           </ul>
         </div>
-
       </div>}
 
     </div>

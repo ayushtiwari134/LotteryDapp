@@ -195,8 +195,9 @@ function App() {
     setPlayers([]);
   }
 
+
+
   const createPlayer = async () => {
-    const parsedAmount = ethers.utils.parseEther('0.1');
     const lottery = getContract();
     const tx = await lottery.createPlayer({ value: ethers.utils.parseEther('0.1') });
     console.log("loading");
